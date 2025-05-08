@@ -28,7 +28,7 @@
 
 ### วิธีที่ 2: ดาวน์โหลด
 
-[ดาวน์โหลด DarkAlert v2.0.0](https://github.com/yourusername/darkalert/releases/latest)
+[ดาวน์โหลด DarkAlert v2.0.0](https://github.com/general-04/DarkAlert/blob/main/README.md)
 
 ## 🚀 การใช้งานเบื้องต้น
 
