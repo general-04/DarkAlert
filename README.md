@@ -63,7 +63,7 @@ DarkAlert.successToast({
 DarkAlert.fire({
     title: '',                 // หัวข้อ
     text: '',                  // ข้อความ
-    icon: 'info',              // ไอคอน (info, success, error, warning)
+    icon: 'info',              // ไอคอน (info, success, error, warning, loading)
     showConfirmButton: true,   // แสดงปุ่มยืนยัน
     showCancelButton: false,   // แสดงปุ่มยกเลิก
     confirmButtonText: 'OK',   // ข้อความปุ่มยืนยัน
