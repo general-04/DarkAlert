@@ -22,8 +22,8 @@
 ### วิธีที่ 1: ผ่าน CDN
 
 ```html
-<link href="https://cdn.example.com/darkalertv2.min.css" rel="stylesheet">
-<script src="https://cdn.example.com/darkalertv2.min.js"></script>
+<link href="https://cdn.jsdelivr.net/gh/general-04/DarkAlert@main/darkalertv2.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/gh/general-04/DarkAlert@main/darkalertv2.min.js"></script>
 ```
 
 ### วิธีที่ 2: ดาวน์โหลด
