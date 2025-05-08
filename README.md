@@ -26,7 +26,7 @@
 <script src="https://cdn.example.com/darkalertv2.min.js"></script>
 ```
 
-### วิธีที่ 2: ดาวน์โหลดโดยตรง
+### วิธีที่ 2: ดาวน์โหลด
 
 [ดาวน์โหลด DarkAlert v2.0.0](https://github.com/yourusername/darkalert/releases/latest)
 
