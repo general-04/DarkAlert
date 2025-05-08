@@ -2,7 +2,7 @@
 
 <div align="center">
   
-![DarkAlert Banner]()
+![DarkAlert Banner](https://raw.githubusercontent.com/general-04/DarkAlert/refs/heads/main/DarkAlertv2.jpg)
 
 **DarkAlertv2**
 
