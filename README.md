@@ -2,13 +2,12 @@
 
 <div align="center">
   
-![DarkAlert Banner](https://via.placeholder.com/1200x300/1e1e1e/8B5CF6?text=DarkAlert)
+![DarkAlert Banner]()
 
 **DarkAlertv2**
 
 [![Version](https://img.shields.io/badge/version-2.0.0-8B5CF6.svg)](https://github.com/yourusername/darkalert)
-[![License](https://img.shields.io/badge/license-MIT-6366F1.svg)](https://github.com/yourusername/darkalert/blob/main/LICENSE)
-[![Size](https://img.shields.io/badge/size-13kb-4F46E5.svg)]()
+[![Size](https://img.shields.io/badge/size-6.7kb-4F46E5.svg)]()
 
 </div>
 
