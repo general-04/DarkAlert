@@ -1,0 +1,551 @@
+/* darkAlert.css */
+:root {
+  --da-bg-main: rgba(15, 15, 15, 0.95);
+  --da-text-main: #f5f5f5;
+  --da-border-radius: 12px;
+  --da-success-color: #10b981;
+  --da-info-color: #3b82f6;
+  --da-warning-color: #f59e0b;
+  --da-error-color: #ef4444;
+  --da-loading-color: #38bdf8;
+  --da-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  --da-transition: all 0.2s ease;
+}
+
+.dark-alert-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.dark-alert-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.dark-alert {
+  position: relative;
+  background-color: var(--da-bg-main);
+  border-radius: var(--da-border-radius);
+  box-shadow: var(--da-shadow);
+  color: var(--da-text-main);
+  width: 32rem;
+  max-width: 90%;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+}
+
+.dark-alert-overlay.active .dark-alert {
+  transform: scale(1);
+}
+
+.dark-alert::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, transparent, var(--da-accent-color), transparent);
+}
+
+.dark-alert-icon {
+  height: 80px;
+  width: 80px;
+  margin-bottom: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-alert-icon svg {
+  width: 45px;
+  height: 45px;
+}
+
+.dark-alert-success::before {
+  --da-accent-color: var(--da-success-color);
+}
+
+.dark-alert-info::before {
+  --da-accent-color: var(--da-info-color);
+}
+
+.dark-alert-warning::before {
+  --da-accent-color: var(--da-warning-color);
+}
+
+.dark-alert-error::before {
+  --da-accent-color: var(--da-error-color);
+}
+
+/*.dark-alert-loading::before {
+ --da-loading-color: var(--da-loading-color);
+}*/
+
+.dark-alert-loading::before {
+  --da-accent-color: var(--da-loading-color); 
+  background: linear-gradient(to right, transparent, var(--da-loading-color), transparent); /* เพิ่ม background */
+}
+
+.dark-alert-success .dark-alert-icon {
+  color: var(--da-success-color);
+}
+
+.dark-alert-info .dark-alert-icon {
+  color: var(--da-info-color);
+}
+
+.dark-alert-warning .dark-alert-icon {
+  color: var(--da-warning-color);
+}
+
+.dark-alert-error .dark-alert-icon {
+  color: var(--da-error-color);
+}
+
+.dark-alert-loading .dark-alert-icon {
+  color: var(--da-loading-color);
+}
+
+.dark-alert-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.dark-alert-content {
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-alert-buttons {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  width: 100%;
+}
+
+.dark-alert-button {
+  flex: 1;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--da-text-main);
+  transition: var(--da-transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.dark-alert-button:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.dark-alert-button:active {
+  transform: translateY(1px);
+}
+
+.dark-alert-button-confirm {
+  background-color: var(--da-accent-color);
+  color: #fff;
+}
+
+.dark-alert-success .dark-alert-button-confirm {
+  background-color: var(--da-success-color);
+}
+
+.dark-alert-info .dark-alert-button-confirm {
+  background-color: var(--da-info-color);
+}
+
+.dark-alert-warning .dark-alert-button-confirm {
+  background-color: var(--da-warning-color);
+}
+
+.dark-alert-error .dark-alert-button-confirm {
+  background-color: var(--da-error-color);
+}
+
+.dark-alert-loading .dark-alert-button-confirm {
+  background-color: var(--da-loading-color);
+}
+
+.dark-alert-button-confirm:hover {
+  opacity: 0.9;
+}
+
+.dark-alert-button-cancel {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark-alert-button-cancel:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Toast notifications */
+.dark-alert-toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 320px;
+  padding: 1rem 1.5rem;
+  background-color: var(--da-bg-main);
+  color: var(--da-text-main);
+  border-radius: var(--da-border-radius);
+  box-shadow: var(--da-shadow);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 9998;
+}
+
+.dark-alert-toast.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dark-alert-toast::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  border-top-left-radius: var(--da-border-radius);
+  border-bottom-left-radius: var(--da-border-radius);
+  background-color: var(--da-accent-color);
+}
+
+.dark-alert-toast-success::before {
+  --da-accent-color: var(--da-success-color);
+}
+
+.dark-alert-toast-info::before {
+  --da-accent-color: var(--da-info-color);
+}
+
+.dark-alert-toast-warning::before {
+  --da-accent-color: var(--da-warning-color);
+}
+
+.dark-alert-toast-error::before {
+  --da-accent-color: var(--da-error-color);
+}
+
+.dark-alert-toast-loading::before {
+  --da-accent-color: var(--da-loading-color);
+}
+
+.dark-alert-toast-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+}
+
+.dark-alert-toast-success .dark-alert-toast-icon {
+  color: var(--da-success-color);
+}
+
+.dark-alert-toast-info .dark-alert-toast-icon {
+  color: var(--da-info-color);
+}
+
+.dark-alert-toast-warning .dark-alert-toast-icon {
+  color: var(--da-warning-color);
+}
+
+.dark-alert-toast-error .dark-alert-toast-icon {
+  color: var(--da-error-color);
+}
+
+.dark-alert-toast-loading .dark-alert-toast-icon {
+  color: var(--da-loading-color);
+}
+
+.dark-alert-toast-content {
+  flex: 1;
+}
+
+.dark-alert-toast-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  font-size: 0.95rem;
+}
+
+.dark-alert-toast-message {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dark-alert-toast-close {
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.5);
+  transition: var(--da-transition);
+}
+
+.dark-alert-toast-close:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.dark-alert-toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark-alert-toast-progress::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--da-accent-color);
+  transform-origin: left;
+}
+
+.dark-alert-toast-success .dark-alert-toast-progress::before {
+  background-color: var(--da-success-color);
+}
+
+.dark-alert-toast-info .dark-alert-toast-progress::before {
+  background-color: var(--da-info-color);
+}
+
+.dark-alert-toast-warning .dark-alert-toast-progress::before {
+  background-color: var(--da-warning-color);
+}
+
+.dark-alert-toast-error .dark-alert-toast-progress::before {
+  background-color: var(--da-error-color);
+}
+
+.dark-alert-toast-loading .dark-alert-toast-progress::before {
+  background-color: var(--da-loading-color);
+}
+
+/* Animations */
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--da-pulse-color), 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(var(--da-pulse-color), 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(var(--da-pulse-color), 0);
+  }
+}
+
+.dark-alert-success .dark-alert-icon {
+  --da-pulse-color: 16, 185, 129;
+  animation: pulse 2s infinite;
+}
+
+.dark-alert-info .dark-alert-icon {
+  --da-pulse-color: 59, 130, 246;
+  animation: pulse 2s infinite;
+}
+
+.dark-alert-warning .dark-alert-icon {
+  --da-pulse-color: 245, 158, 11;
+  animation: pulse 2s infinite;
+}
+
+.dark-alert-error .dark-alert-icon {
+  --da-pulse-color: 239, 68, 68;
+  animation: pulse 2s infinite;
+}
+
+.dark-alert-loading .dark-alert-icon {
+  --da-pulse-color: 56, 189, 248;
+  animation: pulse 2s infinite;
+}
+
+/* Dark Mode Optimizations */
+@media (prefers-color-scheme: dark) {
+  .dark-alert {
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 640px) {
+  .dark-alert {
+    width: 90%;
+    padding: 1.5rem;
+  }
+
+  .dark-alert-icon {
+    height: 70px;
+    width: 70px;
+    margin-bottom: 1rem;
+  }
+
+  .dark-alert-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+
+  .dark-alert-title {
+    font-size: 1.25rem;
+  }
+
+  .dark-alert-content {
+    font-size: 0.95rem;
+  }
+
+  .dark-alert-buttons {
+    flex-direction: column;
+  }
+
+  .dark-alert-toast {
+    width: calc(100% - 48px);
+    bottom: 12px;
+    right: 24px;
+  }
+}
+
+/* Progress Bar Styles */
+.dark-alert-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border-bottom-left-radius: var(--da-border-radius);
+  border-bottom-right-radius: var(--da-border-radius);
+}
+
+.dark-alert-progress-bar {
+  height: 100%;
+  width: 100%;
+  background-color: var(--da-accent-color);
+  transform-origin: left;
+  animation: progressShrink linear forwards;
+  transition: transform 0.1s linear;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.dark-alert-toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  border-radius: 0 0 var(--da-border-radius) var(--da-border-radius);
+}
+
+.dark-alert-toast-progress-bar {
+  height: 100%;
+  width: 100%;
+  background-color: var(--da-accent-color);
+  transform-origin: left;
+  animation: progressShrink linear forwards;
+}
+
+@keyframes progressShrink {
+  from { transform: scaleX(1); }
+  to { transform: scaleX(0); }
+}
+
+.gradient-progress .dark-alert-progress-bar,
+.gradient-progress .dark-alert-toast-progress-bar {
+  background: linear-gradient(90deg, var(--da-accent-color), rgba(255, 255, 255, 0.8));
+  opacity: 0.9;
+}
+
+.pulse-progress .dark-alert-progress-bar,
+.pulse-progress .dark-alert-toast-progress-bar {
+  animation: progressShrink linear forwards, pulseOpacity 1s infinite alternate;
+}
+
+@keyframes pulseOpacity {
+  from { opacity: 0.7; }
+  to { opacity: 1; }
+}
+
+/* Alert Type Specific Colors */
+.dark-alert-success .dark-alert-progress-bar,
+.dark-alert-success .dark-alert-toast-progress-bar {
+  background-color: var(--da-success-color);
+}
+
+.dark-alert-error .dark-alert-progress-bar,
+.dark-alert-error .dark-alert-toast-progress-bar {
+  background-color: var(--da-error-color);
+}
+
+.dark-alert-warning .dark-alert-progress-bar,
+.dark-alert-warning .dark-alert-toast-progress-bar {
+  background-color: var(--da-warning-color);
+}
+
+.dark-alert-info .dark-alert-progress-bar,
+.dark-alert-info .dark-alert-toast-progress-bar {
+  background-color: var(--da-info-color);
+}
+
+.dark-alert-loading .dark-alert-progress-bar,
+.dark-alert-loading .dark-alert-toast-progress-bar {
+  background-color: var(--da-loading-color);
+}
+
+/* Size Variants */
+.progress-thin .dark-alert-progress,
+.progress-thin .dark-alert-toast-progress {
+  height: 2px;
+}
+
+.progress-thick .dark-alert-progress,
+.progress-thick .dark-alert-toast-progress {
+  height: 6px;
+}
+
+/* Rounded Style */
+.progress-rounded .dark-alert-progress-bar,
+.progress-rounded .dark-alert-toast-progress-bar {
+  border-radius: 3px;
+}
