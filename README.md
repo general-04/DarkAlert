@@ -7,7 +7,7 @@
 **DarkAlertv2**
 
 [![Version](https://img.shields.io/badge/version-2.0.0-8B5CF6.svg)](https://github.com/yourusername/darkalert)
-[![Size](https://img.shields.io/badge/size-6.7kb-4F46E5.svg)]()
+[![Size](https://img.shields.io/badge/size-25.9kb-4F46E5.svg)]()
 
 </div>
 
