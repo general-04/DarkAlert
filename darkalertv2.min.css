@@ -106,7 +106,7 @@
 
 .dark-alert-loading::before {
   --da-accent-color: var(--da-loading-color); 
-  background: linear-gradient(to right, transparent, var(--da-loading-color), transparent); /* เพิ่ม background */
+  background: linear-gradient(to right, transparent, var(--da-loading-color), transparent);
 }
 
 .dark-alert-success .dark-alert-icon {
